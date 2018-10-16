@@ -33,7 +33,7 @@ export type MapViewStatus = {
   zoomLevel?: number;
 };
 
-export type Location = {
+export type LocationType = {
   accuracy?: number;
   latitude: number;
   longitude: number;
@@ -146,7 +146,7 @@ export interface MapViewProps extends ViewProps {
   overlook?: number;
   paused?: boolean;
   locationEnabled?: boolean;
-  location?: Location;
+  location?: LocationType;
   locationMode?: "normal" | "follow" | "compass";
   campassMode?: true;
   onLoad?: () => void;
@@ -201,10 +201,10 @@ type LocationListener = (
     timestamp: number;
     altitude: number;
     speed: number;
-  } & Location
+  } & LocationType
 ) => {};
 
-export class Geolocation {
+export class Location {
   static init(): Promise<void>;
   static start();
   static stop();
