@@ -12,7 +12,7 @@
   "author": "@feewee/yangbo",
   "repository": {
     "type": "git",
-    "url": "git@github.com:yangbo5207/fw-react-native-baidumapsdk.git"
+    "url": "https://github.com/qiuxiang/react-native-baidumap-sdk"
   },
   "license": "MIT",
   "files": [
