@@ -16,15 +16,15 @@ class BaiduMapInitializerModule(private val context: ReactApplicationContext) : 
 
         override fun onReceive(context: Context, intent: Intent) {
           try {
-            if (intent.action == SDK_BROADTCAST_ACTION_STRING_PERMISSION_CHECK_OK) {
-                promise?.resolve(null)
-            } else {
-                val code = intent.getIntExtra(SDK_BROADTCAST_INTENT_EXTRA_INFO_KEY_ERROR_CODE, 0)
-                promise?.reject(code.toString(), intent.action)
+                if (intent.action == SDK_BROADTCAST_ACTION_STRING_PERMISSION_CHECK_OK) {
+                    promise?.resolve(null)
+                } else {
+                    val code = intent.getIntExtra(SDK_BROADTCAST_INTENT_EXTRA_INFO_KEY_ERROR_CODE, 0)
+                    promise?.reject(code.toString(), intent.action)
+                }
+            } catch (e: Exception) {
+                Log.e("baidu","百度地图错误", e);
             }
-          } catch (Exception e) {
-            Log.info('百度地图初始化异常.')
-          }
         }
     }
 
